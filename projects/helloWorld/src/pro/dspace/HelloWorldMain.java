@@ -15,6 +15,9 @@ public class HelloWorldMain {
 	public static void main(String[] args) {
 		new HelloWorldConsole().execute();
 		new HelloWorldWin().execute();
+		new HelloWorldWin().execute();
+		new HelloWorldWin().execute();
+		new HelloWorldWin().execute();
+		new HelloWorldWin().execute();
 	}
-
 }
