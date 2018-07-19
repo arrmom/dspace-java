@@ -8,7 +8,8 @@ package pro.dspace.types;
 public class TypesMain {
 
 	public static void main(String[] args) {
-		new PrimitiveTypes().execute();
+//		new PrimitiveTypes().execute();
+		new LearnArrays().execute();
 	}
 
 }
