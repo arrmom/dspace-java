@@ -50,6 +50,14 @@ public class LearnArrays {
 		String[] namesClone = names.clone();
 		System.out.println("namesClone: ");
 		printStrings(namesClone);
+		
+		// for-each стиль
+		System.out.println("for-each iteration:");
+		int i = 0;
+		for(int val: daysInMonth) {
+			System.out.println("val[" + i + "] = " + val);
+			++i;
+		}
 	}
 
 	private void printStrings(String[] strings) {
@@ -59,17 +67,43 @@ public class LearnArrays {
 	}
 
 	private void testTwoDimArrays() {
-		int[][] mulTable = new int[10][10];
-		for(int i = 0; i < 10; ++i) {
-			for(int j = 0; j < 10; ++j) {
+		int[][] mulTable = new int[10][8];
+		for(int i = 0; i < mulTable.length; ++i) {
+			for(int j = 0; j < mulTable[i].length; ++j) {
 				mulTable[i][j] = i * j;
 			}
 		}
 		
 		System.out.println("mulTable:"); 
-		for(int i = 1; i < 10; ++i) {
-			for(int j = 1; j < 10; ++j) {
+		for(int i = 1; i < mulTable.length; ++i) {
+			for(int j = 1; j < mulTable[i].length; ++j) {
 				System.out.print(mulTable[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		int[][] table = new int[3][];
+		table[0] = new int[3];
+		table[1] = new int[4];
+		table[2] = new int[7];
+		for(int i = 0; i < table.length; ++i) {
+			for(int j = 0; j < table[i].length; ++j) {
+				table[i][j] = i + j;
+			}
+		}
+		System.out.println("table:");
+		for(int i = 0; i < table.length; ++i) {
+			for(int j = 0; j < table[i].length; ++j) {
+				System.out.print(table[i][j] + " ");
+			}
+			System.out.println();
+		}
+		//
+		float[][] table2 = { { 1, 2 }, {3, 4} };
+		System.out.println("table2:");
+		for(int i = 0; i < table2.length; ++i) {
+			for(int j = 0; j < table2[i].length; ++j) {
+				System.out.print(table2[i][j] + " ");
 			}
 			System.out.println();
 		}
