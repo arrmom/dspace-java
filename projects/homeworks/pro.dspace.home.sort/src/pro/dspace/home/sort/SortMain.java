@@ -15,12 +15,13 @@ public class SortMain {
 		check(new XBubbleSort());
 		check(new XQuickSort());
 		check(new IvanBubbleSort());
+		check(new IvanMergeSort());
 	}
 	
 	private static void check(Sort sort) {
 		System.out.println("Checking " + sort.getClass().getSimpleName() + " .. ");
-		int[] arr = { 5, 1, 8, 4 };
-		int[] sarr = { 1, 4, 5, 8};
+		int[] arr = { 5, 1, 8, 4, 7 };
+		int[] sarr = { 1, 4, 5, 7, 8 };
 		sort.doAscSort(arr);
 		for(int a: arr) {
 			System.out.print(a + " ");
