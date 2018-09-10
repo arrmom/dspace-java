@@ -20,7 +20,7 @@ public class SortMain {
 	
 	private static void check(Sort sort) {
 		System.out.println("Checking " + sort.getClass().getSimpleName() + " .. ");
-		int[] arr = { 5, 1, 8, 4, 7 };
+		int[] arr = { 5, 8, 1, 4, 7 };
 		int[] sarr = { 1, 4, 5, 7, 8 };
 		sort.doAscSort(arr);
 		for(int a: arr) {
