@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class SortMain {
 
 	public static void main(String[] args) {
-		check(new AntonMergeSort());
+		check(new AntonBubbleSort());
 		check(new XMergeSort());
 		check(new XBubbleSort());
 		check(new XQuickSort());
