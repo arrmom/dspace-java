@@ -14,9 +14,9 @@ public class IvanMergeSort implements Sort {
 		
 		if (arr.length > 1) {
 			int[] temp = Arrays.copyOfRange(arr, 0, arr.length / 2);
-			halfSorted1 = this.mergeSort(temp);
+			halfSorted1 = mergeSort(temp);
 			temp = Arrays.copyOfRange(arr, arr.length / 2, arr.length);
-			halfSorted2 = this.mergeSort(temp);
+			halfSorted2 = mergeSort(temp);
 		} else {
 			return arr;
 		}

@@ -11,9 +11,9 @@ public class SortMain {
 
 	public static void main(String[] args) {
 		check(new AntonBubbleSort());
-		check(new XMergeSort());
-		check(new XBubbleSort());
-		check(new XQuickSort());
+//		check(new XMergeSort());
+//		check(new XBubbleSort());
+//		check(new XQuickSort());
 		check(new IvanBubbleSort());
 		check(new IvanMergeSort());
 	}
