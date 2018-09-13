@@ -13,11 +13,11 @@ public class ClassesMain {
 		box1.height = 3;
 		System.out.println("box1:");
 		print(box1);
-		System.out.println("box1 square = " + box1.calcSquare());
+		System.out.println("box1 area = " + box1.area());
 		box1.setSize(8);
-		System.out.println("box1 square = " + box1.calcSquare());
+		System.out.println("box1 area = " + box1.area());
 		box1.setDimensions(3, 5);
-		System.out.println("box1 square = " + box1.calcSquare());
+		System.out.println("box1 area = " + box1.area());
 		
 		Box box2 = new Box(6);
 		System.out.println("box2:");

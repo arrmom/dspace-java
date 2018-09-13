@@ -1,7 +1,7 @@
 package pro.dspace.classes;
 
 /**
- * Прямоугольник.
+ * Прямоугольная область.
  * 
  * @author mom
  *
@@ -42,7 +42,7 @@ public class Box {
 	 * 
 	 * @return
 	 */
-	public int calcSquare() {
+	public int area() {
 		return width * height;
 	}
 	
