@@ -1,40 +1,46 @@
 package pro.dspace.home.sort;
 
 /**
- * Быстрая сортировка массива.
+ * Р‘С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°.
  * 
  * @author Filin.PW
  *
  */
-public class IvanQuickSort implements Sort{
-	
+public class IvanQuickSort implements Sort {
+
 	/**
-	 * Сортировать массив по возрастанию
-	 * @param data - массив
+	 * РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ.
+	 * 
+	 * @param data - РјР°СЃСЃРёРІ
 	 */
 	@Override
 	public void doAscSort(int[] data) {
-		quickSort(data, 0, data.length - 1);		
+		quickSort(data, 0, data.length - 1);
 	}
 
 	/**
-	 * Сортировать элементы подмассива
-	 * @param arr - массив
-	 * @param begin - индекс первого элемента подмассива
-	 * @param end - индекс последнего элемента подмассива
+	 * РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚С‹ РїРѕРґРјР°СЃСЃРёРІР°.
+	 * 
+	 * @param arr   - РјР°СЃСЃРёРІ
+	 * @param begin - РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РїРѕРґРјР°СЃСЃРёРІР°
+	 * @param end   - РёРЅРґРµРєСЃ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° РїРѕРґРјР°СЃСЃРёРІР°
 	 */
 	private void quickSort(int[] arr, int begin, int end) {
 		if (end - begin < 1) {
 			return;
 		}
-		
-		int mid = arr[(end - begin) / 2 + begin]; 
+
+		int mid = arr[(end - begin) / 2 + begin];
 		int i = begin;
 		int j = end;
-		
+
 		do {
-			while (arr[i] < mid) i++;
-			while (arr[j] > mid) j--;
+			while (arr[i] < mid) {
+				i++;
+			}
+			while (arr[j] > mid) {
+				j--;
+			}
 			if (i <= j) {
 				int temp = arr[i];
 				arr[i] = arr[j];
@@ -42,7 +48,7 @@ public class IvanQuickSort implements Sort{
 				i++;
 				j--;
 			}
-		} while(i <= j);
+		} while (i <= j);
 
 		if (i < end) {
 			quickSort(arr, i, end);
@@ -50,7 +56,7 @@ public class IvanQuickSort implements Sort{
 		if (j > begin) {
 			quickSort(arr, begin, j);
 
-		}	
+		}
 	}
 
 }
