@@ -11,7 +11,7 @@ import pro.dspace.classes.methods.User.Inner;
  * @author mom
  *
  */
-public class ClassesMethodMain {
+public class ClassesMethodsMain {
 
 	public static void main(String[] args) {
 		System.out.println("Классы и методы");
