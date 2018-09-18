@@ -8,13 +8,13 @@ package pro.dspace.home.finalize;
  */
 public class ExperimentFinalizeMain {
 
-    /**
-     * Начать эксперименты.
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-	new IvanExperimentFinalize().provokeExecuteFinalize();
-    }
+	/**
+	 * Начать эксперименты.
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new IvanExperimentFinalize().provokeExecuteFinalize();
+	}
 
 }
