@@ -44,6 +44,7 @@ public class Box {
 		return height * width * depth;
 	}
 	
+	@SuppressWarnings("unused")
 	private void printCreated() {
 		System.out.println("created = " + created);
 	}

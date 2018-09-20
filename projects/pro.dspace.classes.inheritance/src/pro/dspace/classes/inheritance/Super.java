@@ -15,6 +15,7 @@ public class Super {
 		System.out.println("box2:");
 		WeightedBox box2 = new WeightedBox(3, 5, 1, 7);
 		System.out.println("box3:");
+		@SuppressWarnings("unused")
 		WeightedBox box3 = new WeightedBox();
 		
 		System.out.println("box2 vol = " + box2.volume());
