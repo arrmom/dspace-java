@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/mom/workspace/tmp/helloW.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
