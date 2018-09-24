@@ -6,4 +6,5 @@
  *
  */
 module pro.dspace.ivan.color {
+	requires java.desktop;
 }

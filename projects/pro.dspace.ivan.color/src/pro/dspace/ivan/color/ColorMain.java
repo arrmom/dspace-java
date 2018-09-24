@@ -8,9 +8,20 @@ package pro.dspace.ivan.color;
  */
 public class ColorMain {
 
+	/**
+	 * Точка входа в приложение.
+	 * 
+	 * @param args - опции запуска приложения
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		UserInterface ui = new UserInterface(args);
+		CalcColor calcColor = new CalcColor(ui.getAmoColorCenter(), ui.getImageURL());
+
+		if (calcColor.getIndicatorError()) {
+			ui.printErrorMessage(calcColor.getErrorMesage());
+		} else {
+			ui.printResultMessage("Ok");
+		}
 
 	}
-
 }
