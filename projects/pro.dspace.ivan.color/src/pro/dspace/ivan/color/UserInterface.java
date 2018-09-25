@@ -8,21 +8,19 @@ package pro.dspace.ivan.color;
  */
 public class UserInterface {
 
-	/** количество цветовых центров */
-	private int amoColorCenter;
-	/** URL исследуемого изображения */
-	private String imageURL;
-	/** индикатор правильности указания опций */
-	private Boolean correctOptions;
-
 	/**
-	 * Конструктор по умолчанию.
+	 * Число цветовых центров по умолчанию (если не задано).
 	 */
-	private UserInterface() {
-		setAmoColorCenter(3);
-		setImageURL("https://avatars0.githubusercontent.com/u/3118968");
-		setCorrectOptions(true);
-	}
+	private static final int DEFAULT_COLOR_CENTER = 3;
+
+	/** количество цветовых центров */
+	private int amoColorCenter = DEFAULT_COLOR_CENTER;
+
+	/** URL исследуемого изображения */
+	private String imageURL = "https://avatars0.githubusercontent.com/u/3118968";
+
+	/** индикатор правильности указания опций */
+	private Boolean correctOptions = true;
 
 	/**
 	 * Конструктор.
@@ -33,7 +31,6 @@ public class UserInterface {
 	 * @param args - входные параметры
 	 */
 	public UserInterface(String[] args) {
-		this();
 		for (int i = 0; i < args.length; i++) {
 			try {
 				switch (args[i]) {
@@ -138,7 +135,7 @@ public class UserInterface {
 	}
 
 	/**
-	 * Получить URL исследуемого изображения
+	 * Получить URL исследуемого изображения.
 	 * 
 	 * @return URL исследуемого изображения
 	 */
@@ -147,11 +144,14 @@ public class UserInterface {
 	}
 
 	/**
-	 * Задать URL исследуемого изображения
+	 * Задать URL исследуемого изображения.
 	 * 
-	 * @param imageURL - URL исследуемого изображения
+	 * @param imageURL - URL исследуемого изображения, не {@code null} и не пусто
 	 */
 	private void setImageURL(String imageURL) {
+		if (imageURL == null || imageURL.isEmpty()) {
+			throw new IllegalArgumentException("imageURL must not be null or empty");
+		}
 		this.imageURL = imageURL;
 	}
 
