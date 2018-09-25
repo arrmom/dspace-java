@@ -7,10 +7,15 @@ package pro.dspace.interfaces;
  *
  */
 public class InterfacesMain {
-
+	
 	public static void main(String[] args) {
 		System.out.println("Интерфейсы");
-		// TODO
+		
+		Shape player = new Player();
+		player.render();
+		System.out.println(Player.DEFAULT_COLOR);
+		
+		player.rotateAndMove(3, 4, 0.3);
 	}
 
 }
