@@ -16,6 +16,13 @@ public class InterfacesMain {
 		System.out.println(Player.DEFAULT_COLOR);
 		
 		player.rotateAndMove(3, 4, 0.3);
+		
+		Bag bag = Bag.getInstance();
+		if (bag.isEmpty()) {
+			System.out.println("!!!!!! EMPTY");
+		} else {
+			System.out.println("!!!!!! NOT EMPTY");
+		}
 	}
 
 }

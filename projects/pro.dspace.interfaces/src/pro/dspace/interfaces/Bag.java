@@ -1,5 +1,7 @@
 package pro.dspace.interfaces;
 
+import java.util.Date;
+
 /**
  * Множество целых чисел с дубликатами.
  * 
@@ -7,6 +9,8 @@ package pro.dspace.interfaces;
  *
  */
 public interface Bag {
+
+	int DEFAULT_CAPACITY = 10;
 
 	void add(int val);
 
@@ -20,6 +24,7 @@ public interface Bag {
 	int size();
 
 	default boolean isEmpty() {
+		log("isEmpty()");
 		return size() == 0;
 	}
 
@@ -32,5 +37,23 @@ public interface Bag {
 	 * @return
 	 */
 	int count(int val);
+	
+	private void log(String msg) {
+		System.out.println(new Date() + ": " + msg);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	static Bag getInstance() {
+		DefaultBag b = new DefaultBag();
+		b.setCapacity(DEFAULT_CAPACITY);
+		return b;
+	}
+
+	static Bag getFastInstance() {
+		return new FastBag();
+	}
 
 }
