@@ -38,6 +38,10 @@ public class BagMain {
 		bag.remove(100);
 		System.out.println("bag.size() = " + bag.size());
 		printLog(bag);
+
+		bag = Bag.getInstance();
+		printLog(bag);
+		System.out.println("bag.size() = " + bag.size());
 	}
 
 	/**
@@ -46,7 +50,7 @@ public class BagMain {
 	 * @param bag
 	 */
 	private static void printLog(Bag bag) {
-		System.out.println("Log:");
+		System.out.println("Change log:");
 		if (bag.getLog().isEmpty()) {
 			System.out.println(new Date().getTime() + " not changed");
 		} else {

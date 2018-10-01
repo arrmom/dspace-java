@@ -11,21 +11,21 @@ import java.util.List;
 public interface Bag {
 
 	/**
-	 * Добавление члена множества.
+	 * Добавление элемента множества.
 	 * 
-	 * @param val - новый член множества или очередной экземпляр этого члена
+	 * @param val - новый элемент или очередной экземпляр этого элемента
 	 */
 	void add(int val);
 
 	/**
 	 * Удалить один экземпляр значения.
 	 * 
-	 * @param val - член множества, экземпляр которого нужно удалить
+	 * @param val - элемент множества, экземпляр которого нужно удалить
 	 */
 	void remove(int val);
 
 	/**
-	 * Получить количество всех экземпляров всех членов.
+	 * Получить количество всех экземпляров всех элементов.
 	 */
 	int size();
 
@@ -61,4 +61,17 @@ public interface Bag {
 	 */
 	List<String> getLog();
 
+	/**
+	 * Получить пример объекта класса pro.dspace.home.ivan.bag.BagIvan.
+	 * @return пример объекта класса pro.dspace.home.ivan.bag.BagIvan
+	 */
+	static Bag getInstance() {
+		Bag inst = new BagIvan();
+		for (int i = 0, j = 0; i <= 100; i += 10, j++) {
+			for (int k = 0; k <= j; k++) {
+				inst.add(i);
+			}
+		}
+		return inst;
+	}
 }
