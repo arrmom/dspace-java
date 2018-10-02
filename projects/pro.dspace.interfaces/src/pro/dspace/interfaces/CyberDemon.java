@@ -8,7 +8,7 @@ import java.util.EventObject;
  * @author mom
  *
  */
-public class CyberDaemon extends Monster {
+public class CyberDemon extends Monster {
 
 	@Override
 	public void render() {
