@@ -1,5 +1,7 @@
 package pro.dspace.threads;
 
+import java.util.Date;
+
 /**
  * 
  * @author mom
@@ -16,8 +18,12 @@ public class Consumer implements Runnable {
 	@Override
 	public void run() {
 		System.out.println("-- Consumer");
-		for(int i = 0; i < 100; ++i) {
-			System.out.println("Read " + i + ", val = " + queue.get());
+		try {
+			for(int i = 0; i < 100; ++i) {
+				System.out.println("" + new Date() + ": Получено " + queue.get() + "\n");
+			}
+		} catch (InterruptedException e) {
+			System.out.println("Producer interrupted");
 		}
 	}
 

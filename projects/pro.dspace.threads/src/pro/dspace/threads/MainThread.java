@@ -8,7 +8,7 @@ import java.util.Date;
  * @author mom
  *
  */
-public class ThreadMain {
+public class MainThread {
 
 	public void execute() {
 		Thread thread = Thread.currentThread();

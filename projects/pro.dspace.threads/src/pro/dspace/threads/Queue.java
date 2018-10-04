@@ -1,28 +1,54 @@
 package pro.dspace.threads;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 
  * @author mom
  *
  */
 public class Queue {
-	
-	private final List<Integer> list = new LinkedList<>();
-	
-	public void add(int val) {
-		list.add(Integer.valueOf(val));
+
+	private volatile int value;
+
+	private volatile boolean valueSet;
+
+	/**
+	 * Установить значение. Ожидает получения предыдущего значения.
+	 * 
+	 * @param val
+	 * @throws InterruptedException
+	 */
+	public void put(int val) throws InterruptedException {
+		while (valueSet) {
+			synchronized (this) {
+				wait(5000);
+			}
+		}
+		synchronized (this) {
+			value = val;
+			valueSet = true;
+			notify();
+		}
 	}
 
-	public int get() {
-		if (list.isEmpty()) {
-			return -1;
+	/**
+	 * Получить значение. Ожидает установку значения.
+	 * 
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public int get() throws InterruptedException {
+		while (!valueSet) {
+			synchronized (this) {
+				wait(5000);
+			}
 		}
-		int val = list.get(0);
-		list.remove(0);
+		int val;
+		synchronized (this) {
+			valueSet = false;
+			val = value;
+			notify();
+		}
 		return val;
 	}
-	
+
 }
