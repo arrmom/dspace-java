@@ -13,13 +13,21 @@ public class ThreadCommunication {
 		Queue q = new Queue();
 		Producer p = new Producer(q);
 		Consumer c = new Consumer(q);
-		Thread tp = new Thread(p);
-		Thread tc = new Thread(c);
+		Thread tp = new Thread(p, "Producer");
+		Thread tc = new Thread(c, "Consumer");
 		tp.start();
 		tc.start();
 
-		tp.join();
+		tp.join(12000);
+		tc.join(12000);
+		if (tc.isAlive()) {
+			tc.interrupt();
+		}
 		tc.join();
+		if (tp.isAlive()) {
+			tp.interrupt();
+		}
+		tp.join();
 	}
 
 }

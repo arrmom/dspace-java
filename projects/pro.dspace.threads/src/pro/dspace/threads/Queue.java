@@ -18,12 +18,10 @@ public class Queue {
 	 * @throws InterruptedException
 	 */
 	public void put(int val) throws InterruptedException {
-		while (valueSet) {
-			synchronized (this) {
+		synchronized (this) {
+			while (valueSet) {
 				wait(5000);
 			}
-		}
-		synchronized (this) {
 			value = val;
 			valueSet = true;
 			notify();
@@ -37,13 +35,11 @@ public class Queue {
 	 * @throws InterruptedException
 	 */
 	public int get() throws InterruptedException {
-		while (!valueSet) {
-			synchronized (this) {
-				wait(5000);
-			}
-		}
 		int val;
 		synchronized (this) {
+			while (!valueSet) {
+				wait(5000);
+			}
 			valueSet = false;
 			val = value;
 			notify();

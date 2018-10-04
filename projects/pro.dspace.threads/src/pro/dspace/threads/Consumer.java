@@ -19,7 +19,7 @@ public class Consumer implements Runnable {
 	public void run() {
 		System.out.println("-- Consumer");
 		try {
-			for(int i = 0; i < 100; ++i) {
+			for(int i = 0; i < 10; ++i) {
 				System.out.println("" + new Date() + ": Получено " + queue.get() + "\n");
 			}
 		} catch (InterruptedException e) {
