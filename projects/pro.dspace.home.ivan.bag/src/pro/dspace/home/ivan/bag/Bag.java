@@ -1,28 +1,26 @@
 package pro.dspace.home.ivan.bag;
 
-import java.util.List;
-
 /**
- * Множество целых чисел с дубликатами.
+ * Потокобезопасное множество с дубликатами.
  * 
- * @author mom
+ * @author Filin.PW
  *
  */
-public interface Bag {
+public interface Bag<E> {
 
 	/**
 	 * Добавление элемента множества.
 	 * 
-	 * @param val - новый элемент или очередной экземпляр этого элемента
+	 * @param e новый элемент или очередной экземпляр этого элемента
 	 */
-	void add(int val);
+	void add(E e);
 
 	/**
 	 * Удалить один экземпляр значения.
 	 * 
-	 * @param val - элемент множества, экземпляр которого нужно удалить
+	 * @param e элемент множества, экземпляр которого нужно удалить
 	 */
-	void remove(int val);
+	boolean remove(E e);
 
 	/**
 	 * Получить количество всех экземпляров всех элементов.
@@ -41,37 +39,19 @@ public interface Bag {
 	/**
 	 * Проверить наличие экземпляров элемента во множестве
 	 * 
-	 * @param val - элемент
+	 * @param e элемент
 	 * @return true, если экземпляры элемента присутствуют
 	 */
-	default boolean contains(int val) {
-		return count(val) != 0;
+	default boolean contains(E e) {
+		return count(e) != 0;
 	}
 
 	/**
 	 * Получить количество экземпляров элемента.
 	 * 
-	 * @param val - элемент
+	 * @param e элемент
 	 * @return количество экземпляров элемента
 	 */
-	int count(int val);
+	int count(E e);
 
-	/**
-	 * Получить историю изменения множества.
-	 */
-	List<String> getLog();
-
-	/**
-	 * Получить пример объекта класса pro.dspace.home.ivan.bag.BagIvan.
-	 * @return пример объекта класса pro.dspace.home.ivan.bag.BagIvan
-	 */
-	static Bag getInstance() {
-		Bag inst = new BagIvan();
-		for (int i = 0, j = 0; i <= 100; i += 10, j++) {
-			for (int k = 0; k <= j; k++) {
-				inst.add(i);
-			}
-		}
-		return inst;
-	}
 }

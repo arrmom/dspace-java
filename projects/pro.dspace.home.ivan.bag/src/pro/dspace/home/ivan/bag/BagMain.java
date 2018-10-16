@@ -1,9 +1,7 @@
 package pro.dspace.home.ivan.bag;
 
-import java.util.Date;
-
 /**
- * Пример использования множества вида Bag (Множество целых чисел с дубликатами).
+ * Пример использования множества вида Bag.
  * 
  * @author Filin.PW
  *
@@ -16,47 +14,43 @@ public class BagMain {
 	 * @param args - набор входных параметров
 	 */
 	public static void main(String[] args) {
-		Bag bag = new BagIvan();
-		System.out.println("bag.size() = " + bag.size());
-		printLog(bag);
-		System.out.println("bag.count(10) = " + bag.count(10));
-		System.out.println("bag.contains(10) = " + bag.contains(10));
-		bag.add(10);
-		System.out.println("bag.count(10) = " + bag.count(10));
-		System.out.println("bag.contains(10) = " + bag.contains(10));
-		bag.add(20);
-		bag.add(10);
-		System.out.println("bag.count(10) = " + bag.count(10));
-		System.out.println("bag.contains(10) = " + bag.contains(10));
-		bag.add(30);
-		bag.remove(20);
-		bag.remove(20);
-		bag.add(20);
-		bag.remove(30);
-		System.out.println("bag.count(30) = " + bag.count(30));
-		System.out.println("bag.contains(30) = " + bag.contains(30));
-		bag.remove(100);
-		System.out.println("bag.size() = " + bag.size());
-		printLog(bag);
+		Bag<Object> bag = new IvanBag();
+		Character testObject0 = '0';
+		Integer testObject10 = 10;
+		String testObject20 = "20";
 
-		bag = Bag.getInstance();
-		printLog(bag);
-		System.out.println("bag.size() = " + bag.size());
-	}
+		System.out.println("Объект отсутствует:");
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject0) = " + bag.count(testObject0));
+		System.out.println();
 
-	/**
-	 * Отобразить историю изменения множества.
-	 * 
-	 * @param bag
-	 */
-	private static void printLog(Bag bag) {
-		System.out.println("Change log:");
-		if (bag.getLog().isEmpty()) {
-			System.out.println(new Date().getTime() + " not changed");
-		} else {
-			for (String entry : bag.getLog())
-				System.out.println(entry);
-		}
+		bag.add(testObject10);
+		System.out.println("Добавлен 1 экземпляр:");
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject10) = " + bag.count(testObject10));
+		System.out.println();
+
+		bag.add(testObject20);
+		bag.add(testObject20);
+		System.out.println("Добавлено 2 одинаковых экземпляра:");
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject20) = " + bag.count(testObject20));
+		System.out.println();
+
+		System.out.println("Удаление экземпляра testObject20: " + bag.remove(testObject20));
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject20) = " + bag.count(testObject20));
+		System.out.println();
+
+		System.out.println("Удаление последнего экземпляра testObject20: " + bag.remove(testObject20));
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject20) = " + bag.count(testObject20));
+		System.out.println();
+
+		System.out.println("Попытка удаления отсутствующего экземпляра testObject20: " + bag.remove(testObject20));
+		System.out.println("bag.size(): " + bag.size());
+		System.out.println("bag.count(testObject20) = " + bag.count(testObject20));
+		System.out.println();
 	}
 
 }
