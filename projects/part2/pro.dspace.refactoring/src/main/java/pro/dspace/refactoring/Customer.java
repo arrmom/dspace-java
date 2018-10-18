@@ -45,7 +45,7 @@ public class Customer {
 		String result = "Учет аренды для " + getName() + "\n";
 		for (int i = 0; i < numRentals; ++i) {
 			Rental each = rentals[i];
-			double thisAmount = amountFor(each);
+			double thisAmount = each.amountFor();
 			// добавить очки для активного арендатора
 			frequentRenterPoints++;
 			// бонус за аренду новинки на два дня
@@ -62,29 +62,6 @@ public class Customer {
 		return result;
 	}
 	
-	private double amountFor(Rental each) {
-		double thisAmount = 0;
-		// определить сумму для каждой строки
-		switch (each.getMovie().getPriceCode()) {
-		case Movie.REGULAR:
-			thisAmount += 2;
-			if (each.getDaysRented() > 2) {
-				thisAmount += (each.getDaysRented() - 2) * 15;
-			}
-			break;
-		case Movie.NEW_RELEASE:
-			thisAmount += each.getDaysRented() * 3;
-			break;
-		case Movie.CHILDRENS:
-			thisAmount += 15;
-			if (each.getDaysRented() > 3) {
-				thisAmount += (each.getDaysRented() - 3) * 15;
-			}
-			break;
-		}
-		return thisAmount;
-	}
-
 	/**
 	 * Построить отчет в HTML формате.
 	 * 
