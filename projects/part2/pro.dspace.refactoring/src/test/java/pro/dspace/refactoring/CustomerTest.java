@@ -17,6 +17,7 @@ public class CustomerTest {
 		customer.addRental(new Rental(m3, 1));
 		String report = customer.buildReport();
 		assertNotNull(report);
+		System.out.println("report = " + report);
 		assertEquals("Учет аренды для Трофим Иванов\n" + 
 				"	Movie1	17.0\n" + 
 				"	Movie2	47.0\n" + 
