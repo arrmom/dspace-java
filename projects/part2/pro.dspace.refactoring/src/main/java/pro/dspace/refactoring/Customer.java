@@ -41,27 +41,34 @@ public class Customer {
 	 */
 	public String buildReport() {
 		double totalAmount = 0;
-		int frequentRenterPoints = 0;
 		String result = "Учет аренды для " + getName() + "\n";
 		for (int i = 0; i < numRentals; ++i) {
 			Rental each = rentals[i];
+			// показать результаты для этой аренды
 			double thisAmount = each.amountFor();
+			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+			totalAmount += thisAmount;
+		}
+		// добавить нижний колонтитул
+		result += "Сумма задолженности составляет " + String.valueOf(totalAmount) + "\n";
+		result += "Вы заработали " + String.valueOf(calcFrequentRenterPoints()) + " очков за активность";
+		return result;
+	}
+
+	private int calcFrequentRenterPoints() {
+		int frequentRenterPoints = 0;
+		for (int i = 0; i < numRentals; ++i) {
+			Rental each = rentals[i];
 			// добавить очки для активного арендатора
 			frequentRenterPoints++;
 			// бонус за аренду новинки на два дня
 			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
 				frequentRenterPoints++;
 			}
-			// показать результаты для этой аренды
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalAmount += thisAmount;
 		}
-		// добавить нижний колонтитул
-		result += "Сумма задолженности составляет " + String.valueOf(totalAmount) + "\n";
-		result += "Вы заработали " + String.valueOf(frequentRenterPoints) + " очков за активность";
-		return result;
+		return frequentRenterPoints;
 	}
-	
+
 	/**
 	 * Построить отчет в HTML формате.
 	 * 
