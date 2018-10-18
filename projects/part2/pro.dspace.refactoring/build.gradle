@@ -27,5 +27,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-sourceCompatibility = '9'
+// старый gradle (который использует gradlew) содержит старый asm, который не понимает файлы Java 10
+// поэтому нужно указать версию
 targetCompatibility = '9'
+sourceCompatibility = '9'
