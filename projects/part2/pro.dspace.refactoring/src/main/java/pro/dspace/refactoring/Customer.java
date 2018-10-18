@@ -40,17 +40,14 @@ public class Customer {
 	 * @return
 	 */
 	public String buildReport() {
-		double totalAmount = 0;
 		String result = "Учет аренды для " + getName() + "\n";
 		for (int i = 0; i < numRentals; ++i) {
 			Rental each = rentals[i];
 			// показать результаты для этой аренды
-			double thisAmount = each.amountFor();
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalAmount += thisAmount;
+			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.amountFor()) + "\n";
 		}
 		// добавить нижний колонтитул
-		result += "Сумма задолженности составляет " + String.valueOf(totalAmount) + "\n";
+		result += "Сумма задолженности составляет " + String.valueOf(caclTotalRentalAmount()) + "\n";
 		result += "Вы заработали " + String.valueOf(calcFrequentRenterPoints()) + " очков за активность";
 		return result;
 	}
@@ -67,6 +64,17 @@ public class Customer {
 			}
 		}
 		return frequentRenterPoints;
+	}
+
+	private double caclTotalRentalAmount() {
+		double totalAmount = 0;
+		for (int i = 0; i < numRentals; ++i) {
+			Rental each = rentals[i];
+			// показать результаты для этой аренды
+			double thisAmount = each.amountFor();
+			totalAmount += thisAmount;
+		}
+		return totalAmount;
 	}
 
 	/**
