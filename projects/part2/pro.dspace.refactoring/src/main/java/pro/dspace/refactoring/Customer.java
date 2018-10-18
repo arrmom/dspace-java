@@ -1,5 +1,7 @@
 package pro.dspace.refactoring;
 
+import java.util.Arrays;
+
 /**
  * Клиент магазина.
  * 
@@ -10,7 +12,9 @@ public class Customer {
 
 	private final String name;
 
-	private Rental[] rentals;
+	private Rental[] rentals = new Rental[10];
+
+	private int numRentals;
 
 	public Customer(String name) {
 		this.name = name;
@@ -20,11 +24,27 @@ public class Customer {
 		return name;
 	}
 
+	/**
+	 * Добавить данные о прокате.
+	 */
+	public void addRental(Rental rental) {
+		if (numRentals >= rentals.length) {
+			rentals = Arrays.copyOf(rentals, rentals.length + 10);
+		}
+		rentals[numRentals++] = rental;
+	}
+
+	/**
+	 * Построить отчет об оплате за аренду фильмов.
+	 * 
+	 * @return
+	 */
 	public String buildReport() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
-		String result = "Учет аренды для" + getName() + "\n";
-		for (Rental each : rentals) {
+		String result = "Учет аренды для " + getName() + "\n";
+		for (int i = 0; i < numRentals; ++i) {
+			Rental each = rentals[i];
 			double thisAmount = 0;
 			// определить сумму для каждой строки
 			switch (each.getMovie().getPriceCode()) {
@@ -55,9 +75,19 @@ public class Customer {
 			totalAmount += thisAmount;
 		}
 		// добавить нижний колонтитул
-		result += "Сумма задолженности составляет" + String.valueOf(totalAmount) + "\n";
-		result += "Вы заработали " + String.valueOf(frequentRenterPoints) + "очков за активность";
+		result += "Сумма задолженности составляет " + String.valueOf(totalAmount) + "\n";
+		result += "Вы заработали " + String.valueOf(frequentRenterPoints) + " очков за активность";
 		return result;
+	}
+
+	/**
+	 * Построить отчет в HTML формате.
+	 * 
+	 * @return
+	 */
+	public String buildReportHTML() {
+		// TODO
+		return null;
 	}
 
 }

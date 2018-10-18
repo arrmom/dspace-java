@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pro.dspace.refactoring.CustomerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-10-18T09:43:25" hostname="office" time="0.002">
+<testsuite name="pro.dspace.refactoring.CustomerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-10-18T11:27:14" hostname="comp" time="0.026">
   <properties/>
-  <testcase name="testBuildReport" classname="pro.dspace.refactoring.CustomerTest" time="0.002">
-    <failure message="java.lang.AssertionError" type="java.lang.AssertionError">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertNotNull(Assert.java:712)
-	at org.junit.Assert.assertNotNull(Assert.java:722)
-	at pro.dspace.refactoring.CustomerTest.testBuildReport(CustomerTest.java:13)
+  <testcase name="testBuildReport" classname="pro.dspace.refactoring.CustomerTest" time="0.026">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at pro.dspace.refactoring.Customer.buildReport(Customer.java:27)
+	at pro.dspace.refactoring.CustomerTest.testBuildReport(CustomerTest.java:12)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -37,7 +34,7 @@
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
 	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy3.processTestClass(Unknown Source)
+	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
 	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:108)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
