@@ -33,9 +33,7 @@ public interface Bag<E> {
 	 * 
 	 * @return true, если элементы отсутствуют
 	 */
-	default boolean isEmpty() {
-		return size() == 0;
-	}
+	boolean isEmpty();
 
 	/**
 	 * Проверить наличие экземпляров элемента во множестве

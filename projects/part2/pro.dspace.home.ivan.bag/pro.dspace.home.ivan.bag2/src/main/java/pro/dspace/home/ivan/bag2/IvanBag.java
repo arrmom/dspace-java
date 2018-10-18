@@ -1,6 +1,5 @@
 package pro.dspace.home.ivan.bag2;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,6 +55,11 @@ public class IvanBag implements Bag<Object> {
 		} else {
 			return 0;
 		}
+	}
+
+	@Override
+	public synchronized boolean isEmpty() {		
+		return bag.isEmpty();
 	}
 
 }
