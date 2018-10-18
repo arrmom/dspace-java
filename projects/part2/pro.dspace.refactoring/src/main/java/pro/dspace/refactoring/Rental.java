@@ -42,6 +42,9 @@ public class Rental {
 				result += (getDaysRented() - 3) * 15;
 			}
 			break;
+		case HISTORY:
+			// TODO
+			break;
 		}
 		return result;
 	}
