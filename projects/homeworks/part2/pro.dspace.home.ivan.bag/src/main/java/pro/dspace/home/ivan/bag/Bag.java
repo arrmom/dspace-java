@@ -1,4 +1,4 @@
-package pro.dspace.home.ivan.bag2;
+package pro.dspace.home.ivan.bag;
 
 
 /**

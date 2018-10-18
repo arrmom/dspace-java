@@ -1,4 +1,4 @@
-package pro.dspace.home.ivan.bag2;
+package pro.dspace.home.ivan.bag;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,9 @@ import static org.junit.Assume.assumeFalse;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import pro.dspace.home.ivan.bag.Bag;
+import pro.dspace.home.ivan.bag.IvanBag;
 
 /**
  * 

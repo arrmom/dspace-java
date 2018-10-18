@@ -1,4 +1,4 @@
-package pro.dspace.home.ivan.bag2;
+package pro.dspace.home.ivan.bag;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +17,7 @@ public class IvanBag implements Bag<Object> {
 	@Override
 	public synchronized void add(Object e) {
 		if (bag.containsKey(e)) {
-			int val = bag.get(e);
-			bag.put(e, ++val);
+			bag.put(e, bag.get(e) + 1);
 		} else {
 			bag.put(e, 1);
 		}
@@ -28,8 +27,7 @@ public class IvanBag implements Bag<Object> {
 	public synchronized boolean remove(Object e) {
 		if (bag.containsKey(e)) {
 			if (bag.get(e) > 1) {
-				int val = bag.get(e);
-				bag.put(e, --val);
+				bag.put(e, bag.get(e) - 1);
 			} else {
 				bag.remove(e);
 			}
@@ -41,11 +39,11 @@ public class IvanBag implements Bag<Object> {
 
 	@Override
 	public synchronized int size() {
-		int size = 0;
+		int resultSize = 0;
 		for (int val : bag.values()) {
-			size += val;
+			resultSize += val;
 		}
-		return size;
+		return resultSize;
 	}
 
 	@Override
