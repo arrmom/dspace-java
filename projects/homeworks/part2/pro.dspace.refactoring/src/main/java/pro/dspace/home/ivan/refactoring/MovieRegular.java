@@ -18,7 +18,7 @@ public class MovieRegular implements Movie {
 	}
 
 	@Override
-	public int getAddPoints(int daysRented) {
+	public int points(int daysRented) {
 		return ADD_POINTS;
 	}
 

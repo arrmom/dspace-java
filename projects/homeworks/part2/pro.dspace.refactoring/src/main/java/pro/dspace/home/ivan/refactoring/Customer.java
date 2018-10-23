@@ -56,7 +56,7 @@ public class Customer {
 		int frequentRenterPoints = 0;
 		for (int i = 0; i < numRentals; ++i) {
 			// добавить очки для активного арендатора
-			frequentRenterPoints += rentals[i].getMovie().getAddPoints(rentals[i].getDaysRented());
+			frequentRenterPoints += rentals[i].points();
 		}
 		return frequentRenterPoints;
 	}

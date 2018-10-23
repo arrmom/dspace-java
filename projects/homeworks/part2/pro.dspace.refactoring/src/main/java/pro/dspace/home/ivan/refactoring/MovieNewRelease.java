@@ -23,7 +23,7 @@ public class MovieNewRelease implements Movie {
 	}
 
 	@Override
-	public int getAddPoints(int daysRented) {
+	public int points(int daysRented) {
 		int result = ADD_POINTS;
 
 		if (daysRented > 1) {

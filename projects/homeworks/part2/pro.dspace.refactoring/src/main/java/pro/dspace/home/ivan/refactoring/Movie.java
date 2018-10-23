@@ -19,7 +19,7 @@ public interface Movie {
 	 * @param daysRented количество дней использования
 	 * @return количество заработанных очков
 	 */
-	public int getAddPoints(int daysRented);
+	public int points(int daysRented);
 
 	/**
 	 * Возвращает название фильма

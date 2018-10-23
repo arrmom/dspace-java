@@ -27,6 +27,10 @@ public class Rental {
 		return movie.rentalAmount(daysRented);
 	}
 
+	public int points() {		
+		return movie.points(daysRented);
+	}
+	
 	// ************ Getters/Setters ***********
 	public int getDaysRented() {
 		return daysRented;
