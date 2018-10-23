@@ -1,13 +1,33 @@
 package pro.dspace.home.ivan.refactoring;
 
+/**
+ * Информация о фильмах жанра Childrens
+ * 
+ * @author Filin.PW
+ *
+ */
 public class MovieChildrens implements Movie {
 
+	/**
+	 * Название фильма
+	 */
 	private final String title;
 
+	/**
+	 * Прайс-код
+	 */
 	public final int PRICE_CODE = 2;
 
+	/**
+	 * Начальное количество начисляемых очков
+	 */
 	private final int ADD_POINTS = 1;
 
+	/**
+	 * Конструктор
+	 * 
+	 * @param title название фильма
+	 */
 	public MovieChildrens(String title) {
 		this.title = title;
 	}

@@ -27,6 +27,10 @@ public class Rental {
 		return movie.rentalAmount(daysRented);
 	}
 
+	/**
+	 * Получить начисленное кол-во очков за прокат
+	 * @return начисленное кол-во очков
+	 */
 	public int points() {		
 		return movie.points(daysRented);
 	}

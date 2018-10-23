@@ -1,13 +1,33 @@
 package pro.dspace.home.ivan.refactoring;
 
+/**
+ * Информация о фильмах жанра NewRelease
+ * 
+ * @author Filin.PW
+ *
+ */
 public class MovieNewRelease implements Movie {
 
+	/**
+	 * Название фильма
+	 */
 	private final String title;
 
+	/**
+	 * Прайс-код
+	 */
 	public final int PRICE_CODE = 1;
 
+	/**
+	 * Начальное количество начисляемых очков
+	 */
 	private final int ADD_POINTS = 1;
 
+	/**
+	 * Конструктор
+	 * 
+	 * @param title название фильма
+	 */
 	public MovieNewRelease(String title) {
 		this.title = title;
 	}

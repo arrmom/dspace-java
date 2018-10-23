@@ -1,13 +1,32 @@
 package pro.dspace.home.ivan.refactoring;
 
+/**
+ * Информация о фильмах жанра Regular
+ * 
+ * @author Filin.PW
+ *
+ */
 public class MovieRegular implements Movie {
 
+	/**
+	 * Название фильма
+	 */
 	private final String title;
 
+	/**
+	 * Прайс-код
+	 */
 	public final int PRICE_CODE = 0;
 
+	/**
+	 * Начальное количество начисляемых очков
+	 */
 	private final int ADD_POINTS = 1;
 
+	/**
+	 * Конструктор
+	 * @param title название фильма
+	 */
 	public MovieRegular(String title) {
 		this.title = title;
 	}
