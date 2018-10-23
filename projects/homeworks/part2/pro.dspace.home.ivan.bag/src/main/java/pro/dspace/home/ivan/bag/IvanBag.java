@@ -9,6 +9,7 @@ import java.util.Map;
  * @author Filin.PW
  *
  */
+// TODO: сделать шаблон
 public class IvanBag implements Bag<Object> {
 
 	/** Хранилище элементов множества и информации о их количестве в этом множестве. */
@@ -16,6 +17,7 @@ public class IvanBag implements Bag<Object> {
 
 	@Override
 	public synchronized void add(Object e) {
+		// TODO: эффективность
 		if (bag.containsKey(e)) {
 			bag.put(e, bag.get(e) + 1);
 		} else {

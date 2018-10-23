@@ -44,7 +44,7 @@ public class Customer {
 		for (int i = 0; i < numRentals; ++i) {
 			Rental each = rentals[i];
 			// показать результаты для этой аренды
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.amountFor()) + "\n";
+			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
 		}
 		// добавить нижний колонтитул
 		result += "Сумма задолженности составляет " + String.valueOf(calcTotalRentalAmount()) + "\n";
@@ -69,7 +69,7 @@ public class Customer {
 	private double calcTotalRentalAmount() {
 		double totalAmount = 0;
 		for (int i = 0; i < numRentals; ++i) {
-			totalAmount += rentals[i].amountFor();
+			totalAmount += rentals[i].getCharge();
 		}
 		return totalAmount;
 	}

@@ -102,7 +102,7 @@ public class IvanBagTest {
 		Character obj0 = '0';
 		Integer obj10 = 10;
 		String obj20 = "20";
-
+		
 		assumeFalse(bag.contains(obj0));
 		assertEquals(0, bag.count(obj10));
 		bag.add(obj10);
