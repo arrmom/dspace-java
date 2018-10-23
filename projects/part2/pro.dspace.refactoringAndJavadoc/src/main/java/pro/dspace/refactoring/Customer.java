@@ -51,7 +51,7 @@ public class Customer {
 		result += "Вы заработали " + String.valueOf(calcFrequentRenterPoints()) + " очков за активность";
 		return result;
 	}
-
+	
 	private int calcFrequentRenterPoints() {
 		int frequentRenterPoints = 0;
 		for (int i = 0; i < numRentals; ++i) {

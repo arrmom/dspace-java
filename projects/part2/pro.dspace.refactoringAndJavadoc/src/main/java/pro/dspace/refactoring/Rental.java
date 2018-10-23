@@ -8,9 +8,20 @@ package pro.dspace.refactoring;
  */
 public class Rental {
 
+	private static final int DEFAULT_DAYS_RENTED = 7;
+
 	private final Movie movie;
 
 	private final int daysRented;
+
+	/**
+	 * Создать данные о прокате для {@value #DEFAULT_DAYS_RENTED} дней.
+	 * 
+	 * @param movie
+	 */
+	public Rental(Movie movie) {
+		this(movie, DEFAULT_DAYS_RENTED);
+	}
 
 	public Rental(Movie movie, int daysRented) {
 		super();

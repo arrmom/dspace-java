@@ -11,7 +11,7 @@ public interface MoviePrice {
 	 * Вычислить стоимость проката.
 	 * 
 	 * @param rental
-	 * @return
+	 * @return стоимость в единицах валюты (в долларах, например)
 	 */
 	double getCharge(Rental rental);
 
