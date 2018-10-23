@@ -1,4 +1,4 @@
-package pro.dspace.refactoring;
+package pro.dspace.home.ivan.refactoring;
 
 import java.util.Arrays;
 
@@ -55,13 +55,8 @@ public class Customer {
 	private int calcFrequentRenterPoints() {
 		int frequentRenterPoints = 0;
 		for (int i = 0; i < numRentals; ++i) {
-			Rental each = rentals[i];
 			// добавить очки для активного арендатора
-			frequentRenterPoints++;
-			// бонус за аренду новинки на два дня
-			if ((each.getMovie().getPriceCode() == MoviePriceCode.NEW_RELEASE) && each.getDaysRented() > 1) {
-				frequentRenterPoints++;
-			}
+			frequentRenterPoints += rentals[i].getMovie().getAddPoints(rentals[i].getDaysRented());
 		}
 		return frequentRenterPoints;
 	}
