@@ -6,18 +6,16 @@ import java.util.Map;
 /**
  * Множество целых чисел с дубликатами.
  * 
- * @author Filin.PW
+ * @author Ivan Nosov
  *
  */
-// TODO: сделать шаблон
-public class IvanBag implements Bag<Object> {
+public class MyBag implements Bag<Integer> {
 
 	/** Хранилище элементов множества и информации о их количестве в этом множестве. */
-	private final Map<Object, Integer> bag = new HashMap<Object, Integer>();
+	private final Map<Integer, Integer> bag = new HashMap<Integer, Integer>();
 
 	@Override
-	public synchronized void add(Object e) {
-		// TODO: эффективность
+	public synchronized void add(Integer e) {
 		if (bag.containsKey(e)) {
 			bag.put(e, bag.get(e) + 1);
 		} else {
@@ -26,10 +24,11 @@ public class IvanBag implements Bag<Object> {
 	}
 
 	@Override
-	public synchronized boolean remove(Object e) {
+	public synchronized boolean remove(Integer e) {
 		if (bag.containsKey(e)) {
-			if (bag.get(e) > 1) {
-				bag.put(e, bag.get(e) - 1);
+			int amoE = bag.get(e);
+			if (amoE > 1) {
+				bag.put(e, --amoE);
 			} else {
 				bag.remove(e);
 			}
@@ -49,7 +48,7 @@ public class IvanBag implements Bag<Object> {
 	}
 
 	@Override
-	public synchronized int count(Object e) {
+	public synchronized int count(Integer e) {
 		if (bag.containsKey(e)) {
 			return bag.get(e);
 		} else {
@@ -58,7 +57,7 @@ public class IvanBag implements Bag<Object> {
 	}
 
 	@Override
-	public synchronized boolean isEmpty() {		
+	public synchronized boolean isEmpty() {
 		return bag.isEmpty();
 	}
 

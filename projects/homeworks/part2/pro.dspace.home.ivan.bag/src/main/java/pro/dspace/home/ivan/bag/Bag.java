@@ -1,10 +1,9 @@
 package pro.dspace.home.ivan.bag;
 
-
 /**
  * Потокобезопасное множество с дубликатами.
  * 
- * @author Filin.PW
+ * @author Ivan Nosov
  *
  */
 public interface Bag<E> {
