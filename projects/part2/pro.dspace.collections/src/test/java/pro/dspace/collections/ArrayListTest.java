@@ -83,5 +83,14 @@ public class ArrayListTest {
 		}
 		assertEquals(Arrays.asList("B"), list);
 	}
+
+	@Test
+	public void testGet() {
+		List<String> list = new ArrayList<>();
+		list.add("A");
+		list.add("B");
+		list.add("123");
+		assertEquals("123", list.get(2));
+	}
 	
 }
