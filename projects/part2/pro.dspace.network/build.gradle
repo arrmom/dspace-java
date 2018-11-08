@@ -21,7 +21,7 @@ dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
 //    api 'org.apache.commons:commons-math3:3.6.1'
 
-	api 'org.apache.httpcomponents:httpcomponents-client:4.5.6'
+	// api 'org.apache.httpcomponents:httpclient:4.5.6'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
 //    implementation 'com.google.guava:guava:23.0'

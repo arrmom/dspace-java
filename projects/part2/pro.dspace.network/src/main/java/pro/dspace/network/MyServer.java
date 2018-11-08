@@ -2,9 +2,12 @@ package pro.dspace.network;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -74,9 +77,10 @@ public class MyServer {
 			notifyAll();
 		}
 		try {
+			serverSocket.close();
 			listenerThread.join();
+		} catch (IOException e) {
 		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 		stopSignal = false;
 		started = false;
@@ -106,7 +110,8 @@ public class MyServer {
 					}
 				});
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				// e1.printStackTrace();
+				break; // --->
 			}
 
 			synchronized (this) {
@@ -120,20 +125,34 @@ public class MyServer {
 		System.out.println("Stopped thread (" + name + ")");
 	}
 
-	private void handleConnection(Socket socket) throws IOException, InterruptedException {
+	private void handleConnection(Socket socket) throws IOException, InterruptedException, ClassNotFoundException {
 		InputStream in = socket.getInputStream();
 		OutputStream out = socket.getOutputStream();
+		ObjectInputStream objIn = new ObjectInputStream(in);
+		Object obj = objIn.readObject();
+		if (obj instanceof GetTimeRequest) {
+			System.out.println("Accepted request " + obj);
+			GetTimeResponse resp = new GetTimeResponse();
+			resp.setTime(new Date());
+			ObjectOutputStream objOut = new  ObjectOutputStream(out);
+			objOut.writeObject(resp);
+		} else {
+			// TODO
+			System.out.println("Unknown request object " + obj);
+		}
+		
 		int b = in.read();
 		while (b != -1 && b != 0xff) {
-			System.out.println("received " + Integer.toHexString(b));
 			out.write(b);
 			out.write(b);
 			b = in.read();
 		}
-		Thread.sleep(100);
+		out.write(0xff);
+		// Thread.sleep(100);
 		out.close();
 		in.close();
 		socket.close();
 	}
+	
 
 }
