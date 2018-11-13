@@ -3,6 +3,7 @@ package pro.dspace.reflection;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.Closeable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -21,8 +22,8 @@ public class ProxyTest {
 	@Test
 	public void testNewProxyInstance() {
 
-		Object obj = Proxy.newProxyInstance(ProxyTest.class.getClassLoader(), new Class[] { MyInterface.class },
-				new InvocationHandler() {
+		Object obj = Proxy.newProxyInstance(ProxyTest.class.getClassLoader(),
+				new Class[] { MyInterface.class, Closeable.class }, new InvocationHandler() {
 					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						if (method.getName().equals("printMessage")) {
@@ -37,6 +38,7 @@ public class ProxyTest {
 				});
 
 		assertTrue(obj instanceof MyInterface);
+		assertTrue(obj instanceof Closeable);
 
 		MyInterface myObj = (MyInterface) obj;
 		myObj.printMessage("Hello, World!");
